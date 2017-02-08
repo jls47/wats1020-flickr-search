@@ -5,15 +5,16 @@
 // of tags and view the images that are found.
 //
 // Allow users to click the images to see a larger version with more information.
-$(document).on('ready', function(){
+$(document).ready(function(){
     // Place your code here, inside the document ready handler.
 
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
-
+	
+	
     // Inside the `searchImages()` function, the following things should happen:
-
+		
         // 1.   Accept a string value called `tags` as an argument. Example:
         //      `var searchPhotos = function(tags){`
         //
@@ -26,7 +27,23 @@ $(document).on('ready', function(){
         //
         // 4.   Update the display to add the images to the list with the id
         //      `#images`.
-
+	var searchImages = function(tags){
+		var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+			$.getJSON( flickerAPI, {
+			tags: tags,
+			tagmode: "any",
+			format: "json"
+		})
+		.done(function( data ) {
+			$.each( data.items, function( i, item ) {
+				$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+			if ( i === 30 ) {
+				return false;
+			}
+			});
+		});
+	};
+	
     // Attach an event to the search button (`button.search`) to execute the
     // search when clicked.
 
@@ -40,7 +57,17 @@ $(document).on('ready', function(){
         //
         // 3.   Execute the `searchImages()` function to fetch images for the
         //      user.
-
+		
+		//var tags = "asd";
+	$("button.search").click(function(e){
+		e.preventDefault();
+		$("#images").empty();
+		tags = $('.form-control').val();
+		console.log(tags);
+		searchImages(tags);
+	});
+		
+		
     // STRETCH GOAL: Add a "more info" popup using the technique shown on the
     // Bootstrap Modal documentation: http://getbootstrap.com/javascript/#modals-related-target
 
