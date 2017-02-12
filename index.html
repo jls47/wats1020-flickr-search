@@ -27,30 +27,23 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Flickr Search</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+	<span class = "logo"><img src = "flickrlogo.png"></span>
+    <nav class="navbar navbar-light bg-faded justify-content-between" role="navigation">
+       <a class="navbar-brand" href="#"><img src = "http://i.imgur.com/GldNsIE.png" style = "width: 50px; height: 25px;"></a><br>
+        <div id="navbar" class="navbar navbar navbar-fixed">
+          <form class="form-inline" role="form">
             <div class="form-group">
               <input type="text" placeholder="Type keywords here." class="form-control" name="searchText">
             </div>
             <button type="submit" class="btn btn-primary search" name="searchButton">Search</button>
           </form>
         </div><!--/.navbar-collapse -->
+		<!-- <span class = "logo"><img src = "flickrlogo.png"></span> -->
       </div>
     </nav>
 
     <div class="container">
-      <h1 class="search-title">Flickr Search</h1>
+      <h1 class="search-title"><span class="glyphicon glyphicon-search"></span> Flickr Search</h1>
       <ul id="images">
         <!-- TODO: Replace the content in this area with a grid of images based on the results of the search. -->
         <li class="placeholder">Search for images using the search bar above!</li>
@@ -59,7 +52,7 @@
       <hr>
 
       <footer>
-        <p>&copy; Jane Student 2015</p>
+        <p>&copy; JLS 2017</p>
       </footer>
     </div> <!-- /container -->
 
@@ -75,7 +68,7 @@
             Loading...
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><span class='glyphicon glyphicon-zoom-out'></span> close</button>
           </div>
         </div>
       </div>
@@ -85,7 +78,7 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script src="js/vendor/bootstrap.min.js"></script>
-
+	<script src="https://gist.githubusercontent.com/PizzaBrandon/5709010/raw/e539a6f16c10465eb948b9ef6b0fe1d4c17a7c3e/jquery.waituntilexists.js"></script>
     <script src="js/main.js"></script>
 
     </body>
